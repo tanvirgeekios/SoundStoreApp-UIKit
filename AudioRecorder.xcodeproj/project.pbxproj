@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EBAC242F26169DAB00E5E7B1 /* CoreDataManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAC242E26169DAB00E5E7B1 /* CoreDataManger.swift */; };
+		EBAC24352616A0E700E5E7B1 /* AudioListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAC24342616A0E700E5E7B1 /* AudioListViewController.swift */; };
+		EBAC24382616AC0F00E5E7B1 /* PlaySoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAC24372616AC0F00E5E7B1 /* PlaySoundViewController.swift */; };
 		EBDAA59F2615E47E00D09BEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDAA59E2615E47E00D09BEC /* AppDelegate.swift */; };
 		EBDAA5A12615E47E00D09BEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDAA5A02615E47E00D09BEC /* SceneDelegate.swift */; };
 		EBDAA5A32615E47E00D09BEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDAA5A22615E47E00D09BEC /* ViewController.swift */; };
@@ -14,9 +17,13 @@
 		EBDAA5A92615E47E00D09BEC /* AudioRecorder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBDAA5A72615E47E00D09BEC /* AudioRecorder.xcdatamodeld */; };
 		EBDAA5AB2615E47F00D09BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBDAA5AA2615E47F00D09BEC /* Assets.xcassets */; };
 		EBDAA5AE2615E47F00D09BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBDAA5AC2615E47F00D09BEC /* LaunchScreen.storyboard */; };
+		EBDAA5B82615F44500D09BEC /* SoundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDAA5B72615F44500D09BEC /* SoundModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EBAC242E26169DAB00E5E7B1 /* CoreDataManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManger.swift; sourceTree = "<group>"; };
+		EBAC24342616A0E700E5E7B1 /* AudioListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListViewController.swift; sourceTree = "<group>"; };
+		EBAC24372616AC0F00E5E7B1 /* PlaySoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundViewController.swift; sourceTree = "<group>"; };
 		EBDAA59B2615E47E00D09BEC /* AudioRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDAA59E2615E47E00D09BEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBDAA5A02615E47E00D09BEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +33,7 @@
 		EBDAA5AA2615E47F00D09BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBDAA5AD2615E47F00D09BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBDAA5AF2615E47F00D09BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBDAA5B72615F44500D09BEC /* SoundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EBAC242D26169D8D00E5E7B1 /* CoreDataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC242E26169DAB00E5E7B1 /* CoreDataManger.swift */,
+			);
+			path = CoreDataHelper;
+			sourceTree = "<group>";
+		};
+		EBAC24322616A02000E5E7B1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EBDAA5A22615E47E00D09BEC /* ViewController.swift */,
+				EBAC24342616A0E700E5E7B1 /* AudioListViewController.swift */,
+				EBAC24372616AC0F00E5E7B1 /* PlaySoundViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		EBDAA5922615E47E00D09BEC = {
 			isa = PBXGroup;
 			children = (
@@ -58,9 +84,11 @@
 		EBDAA59D2615E47E00D09BEC /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				EBAC24322616A02000E5E7B1 /* Controllers */,
+				EBAC242D26169D8D00E5E7B1 /* CoreDataHelper */,
+				EBDAA5B62615F42500D09BEC /* Models */,
 				EBDAA59E2615E47E00D09BEC /* AppDelegate.swift */,
 				EBDAA5A02615E47E00D09BEC /* SceneDelegate.swift */,
-				EBDAA5A22615E47E00D09BEC /* ViewController.swift */,
 				EBDAA5A42615E47E00D09BEC /* Main.storyboard */,
 				EBDAA5AA2615E47F00D09BEC /* Assets.xcassets */,
 				EBDAA5AC2615E47F00D09BEC /* LaunchScreen.storyboard */,
@@ -68,6 +96,14 @@
 				EBDAA5A72615E47E00D09BEC /* AudioRecorder.xcdatamodeld */,
 			);
 			path = AudioRecorder;
+			sourceTree = "<group>";
+		};
+		EBDAA5B62615F42500D09BEC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBDAA5B72615F44500D09BEC /* SoundModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBAC24352616A0E700E5E7B1 /* AudioListViewController.swift in Sources */,
 				EBDAA5A32615E47E00D09BEC /* ViewController.swift in Sources */,
 				EBDAA59F2615E47E00D09BEC /* AppDelegate.swift in Sources */,
+				EBDAA5B82615F44500D09BEC /* SoundModel.swift in Sources */,
 				EBDAA5A92615E47E00D09BEC /* AudioRecorder.xcdatamodeld in Sources */,
+				EBAC242F26169DAB00E5E7B1 /* CoreDataManger.swift in Sources */,
+				EBAC24382616AC0F00E5E7B1 /* PlaySoundViewController.swift in Sources */,
 				EBDAA5A12615E47E00D09BEC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
