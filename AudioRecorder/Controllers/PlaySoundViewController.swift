@@ -36,7 +36,7 @@ class PlaySoundViewController: UIViewController {
             guard let player = player else {
                 return
             }
-            player.volume = 0.5
+            player.volume = 1
             player.play()
             
         }catch{

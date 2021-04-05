@@ -58,21 +58,25 @@ class AudioListViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-            // delete from core data
-            CoreDataManager.shared.deleteSound(sound:sounds[indexPath.row])
             
-            // delete from fileManager
             if let fileURL = sounds[indexPath.row].uniqueName{
                 let url = getDocumentsDirectory().appendingPathComponent(fileURL)
                 do{
+                    // delete from fileManager
                     try FileManager.default.removeItem(at: url)
+                    //Delete from coreData
+                    CoreDataManager.shared.deleteSound(sound:sounds[indexPath.row])
                     print("Success deleting file")
                 }catch{
                     print("Error deleting file")
                 }
                 
+                //remove from array
                 sounds.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }else{
+                print("No file")
             }
         }else if editingStyle == .insert {
             

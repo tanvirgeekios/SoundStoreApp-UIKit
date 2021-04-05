@@ -121,14 +121,26 @@
                     <view key="view" contentMode="scaleToFill" id="Kep-f6-XQg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound is Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgl-mT-6Mc">
+                                <rect key="frame" x="144.5" y="438" width="125" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ja6-Mb-HH0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cgl-mT-6Mc" firstAttribute="centerX" secondItem="Kep-f6-XQg" secondAttribute="centerX" id="p9X-rh-04t"/>
+                            <constraint firstItem="cgl-mT-6Mc" firstAttribute="centerY" secondItem="Kep-f6-XQg" secondAttribute="centerY" id="usI-4m-L9C"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X1N-ps-0qp"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RmP-pd-C9p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2513" y="72"/>
+            <point key="canvasLocation" x="2511.594202898551" y="71.651785714285708"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fkC-it-Adm">

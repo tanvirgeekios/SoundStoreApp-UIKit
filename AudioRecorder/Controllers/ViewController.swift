@@ -14,39 +14,78 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     var recordingSession:AVAudioSession!
     var audioRecorder:AVAudioRecorder!
     var sound:SoundModel?
+    var microphonePresent = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
         recordBTN.isEnabled = false
+        checkDeviceOrSimilator()
     }
     
     //MARK:- IBActions
     @IBAction func recordBTNClicked(_ sender: UIButton) {
-        if self.audioRecorder == nil {
-            alertForAudioname()
+        
+        let isMicAvailable: Bool = AVAudioSession.sharedInstance().availableInputs?.first(where: { $0.portType == AVAudioSession.Port.builtInMic }) != nil
+        
+        if isMicAvailable{
+            print("Microphone available")
+            if self.audioRecorder == nil {
+                alertForAudioname()
+            }
+            else {
+                self.finishRecording(success: true)
+            }
+        }else{
+            print("Microphone not available")
+            showAlert(title: "Hey", message: "Please insert microphone")
         }
-        else {
-            self.finishRecording(success: true)
-        }
+        
         
     }
     
     //MARK:- functions
+    func checkDeviceOrSimilator(){
+        #if targetEnvironment(simulator)
+        //Simulator
+        print("I am in a simulator")
+        showAlert(title: "Hi", message: "You are using XCode simulator. Please Plugin a Microphone to record sound. Checking Microphone availability Feature does not work in Simulator.")
+        #else
+        //Real device
+        print("I am in a real device")
+        #endif
+    }
+    
     func alertForAudioname(){
-        let alert = UIAlertController(title: "Name of your sound", message: "What is the name of your sound?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Name of your sound", message: "What will be the name of your sound?", preferredStyle: .alert)
         alert.addTextField()
         let saveNameAction = UIAlertAction(title: "Save Name", style: .default) { (action) in
             let fileName = alert.textFields![0].text
             if let fileName = fileName{
-                self.sound  = SoundModel(uniqueName: UUID().uuidString, name: fileName)
-                // start recording
                 
-                self.startRecording()
+                if self.validateFileName(named:fileName){
+                    self.sound  = SoundModel(uniqueName: UUID().uuidString, name: fileName)
+                    // start recording
+                    self.startRecording()
+                }else{
+                    self.dismiss(animated: true) {
+                        self.present(alert,animated: true)
+                    }
+                }
+                
             }
         }
         alert.addAction(saveNameAction)
         present(alert,animated: true)
+    }
+    
+    func validateFileName(named fileName:String)->Bool{
+        if fileName.trimmingCharacters(in: .whitespaces).count == 0{
+            return false
+        }else{
+            return true
+        }
+        
     }
     
     func configure(){
